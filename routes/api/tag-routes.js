@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   Tag.findAll({
     attributes: [
       'id',
-      'tag_name'
+      'tagName'
     ],
   // be sure to include its associated Product data
     include: [
@@ -26,12 +26,12 @@ router.get('/', (req, res) => {
       }
     ]
   })
-  .then(dbPostData => res.json(dbPostData))
+  .then(dbTagData => res.json(dbTagData))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
-  });
-});
+  }),
+
 
 router.get('/:id', (req, res) => {
 // find a single tag by its `id`
@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'tag_name'
+      'tagName'
     ],
 // be sure to include its associated Product data
     include: [
@@ -74,7 +74,7 @@ router.get('/:id', (req, res) => {
     console.log(err);
     res.status(500).json(err)
   });
-});
+}),
 
 router.post('/', (req, res) => {
   // create a new tag
@@ -124,6 +124,6 @@ router.delete('/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
   });
-});
+})},
 
-module.exports = router;
+module.exports = router
