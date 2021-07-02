@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
         },
         attributes: [
           'id',
-          'tagName'
+          'tag_name'
         ],
         // be sure to include its associated Product data
         include: [
